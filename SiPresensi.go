@@ -137,7 +137,6 @@ func cariJadwal(J dataJadwal, kode string) int {
 func tampilJadwal(J dataJadwal, pertemuanKe [NKELAS]int) {
 	fmt.Printf("\n%-5s  %-40s  %-8s  %-11s  %-10s  %s\n",
 		"Kode", "Mata Kuliah", "Hari", "Jam", "Ruangan", "Pertemuan")
-	fmt.Println("----  ----------------------------------------  --------  -----------  ----------  ---------")
 	var i int
 	for i = 0; i < NKELAS; i++ {
 		fmt.Printf("%-5s  %-40s  %-8s  %-11s  %-10s  %d\n",
@@ -207,7 +206,6 @@ func tampilData(A dataMahasiswa, n int) {
 	}
 	fmt.Printf("\n%-3s  %-6s  %-20s  %-3s  %-3s  %-3s  %-3s  %s\n",
 		"No", "NIM", "Nama", "H", "I", "S", "A", "Total")
-	fmt.Println("---  ------  --------------------  ---  ---  ---  ---  -----")
 	var i int
 	for i = 0; i < n; i++ {
 		fmt.Printf("%-3d  %-6s  %-20s  %-3d  %-3d  %-3d  %-3d  %d\n",
@@ -232,12 +230,10 @@ func sesiAbsensi(A *dataMahasiswa, nA int, J dataJadwal, L *dataLog, nL *int, pe
 		fmt.Println("Kode kelas tidak ditemukan!")
 		return
 	}
-	fmt.Println("\n================================================")
 	fmt.Printf("  Kelas     : %s - %s\n", J[idxJ].kodeKelas, J[idxJ].mataKuliah)
 	fmt.Printf("  Hari/Jam  : %s, %s\n", J[idxJ].hari, J[idxJ].jam)
 	fmt.Printf("  Ruangan   : %s\n", J[idxJ].ruangan)
 	fmt.Printf("  Pertemuan : ke-%d\n", pertemuanKe[idxJ]+1)
-	fmt.Println("================================================")
 	fmt.Println("Ketik NIM untuk absen, ketik SELESAI untuk mengakhiri sesi.")
 	for {
 		var input string
@@ -291,7 +287,7 @@ func sesiAbsensi(A *dataMahasiswa, nA int, J dataJadwal, L *dataLog, nL *int, pe
 		} else if status == "A" {
 			A[idxA].alpa++
 		}
-		fmt.Printf("✓ %s - %s - Pertemuan %d - Status: %s tercatat.\n",
+		fmt.Printf("%s - %s - Pertemuan %d - Status: %s tercatat.\n",
 			A[idxA].nama, J[idxJ].mataKuliah, pertemuanKe[idxJ]+1, status)
 	}
 }
@@ -306,7 +302,6 @@ func tampilLog(L dataLog, nL int, J dataJadwal, pertemuanKe [NKELAS]int) {
 	fmt.Scan(&kode)
 	fmt.Printf("\n%-6s  %-20s  %-5s  %-40s  %-9s  %s\n",
 		"NIM", "Nama", "Kelas", "Mata Kuliah", "Pertemuan", "Status")
-	fmt.Println("------  --------------------  -----  ----------------------------------------  ---------  ------")
 	var i int
 	var ada bool = false
 	for i = 0; i < nL; i++ {
@@ -447,7 +442,6 @@ func statistik(A dataMahasiswa, n int) {
 	fmt.Println("\nSTATISTIK KEHADIRAN")
 	fmt.Printf("%-3s  %-6s  %-20s  %-8s  %-3s  %-3s  %-3s  %s\n",
 		"No", "NIM", "Nama", "% Hadir", "H", "I", "S", "A")
-	fmt.Println("---  ------  --------------------  --------  ---  ---  ---  ---")
 	for i = 0; i < n; i++ {
 		fmt.Printf("%-3d  %-6s  %-20s  %7.2f%%  %-3d  %-3d  %-3d  %d\n",
 			i+1,
@@ -464,25 +458,25 @@ func statistik(A dataMahasiswa, n int) {
 		A[idxMax].nama, A[idxMax].alpa)
 }
 func tampilMenu() {
-	fmt.Println("\n+++ SiPresensi +++")
-	fmt.Println("--- Absensi ---")
+	fmt.Println("\nSiPresensi")
+	fmt.Println("Absensi")
 	fmt.Println("1.  Mulai Sesi Absensi")
 	fmt.Println("2.  Tampil Log Kehadiran")
-	fmt.Println("--- Data Mahasiswa ---")
+	fmt.Println("Data Mahasiswa")
 	fmt.Println("3.  Tambah Mahasiswa")
 	fmt.Println("4.  Ubah Mahasiswa")
 	fmt.Println("5.  Hapus Mahasiswa")
 	fmt.Println("6.  Tampil Data Mahasiswa")
-	fmt.Println("--- Jadwal ---")
+	fmt.Println("Jadwal")
 	fmt.Println("7.  Tampil Jadwal Kelas")
-	fmt.Println("--- Pencarian ---")
+	fmt.Println("Pencarian")
 	fmt.Println("8.  Sequential Search by NIM")
 	fmt.Println("9.  Sequential Search by Status")
 	fmt.Println("10. Binary Search by NIM")
-	fmt.Println("--- Pengurutan ---")
+	fmt.Println("Pengurutan")
 	fmt.Println("11. Selection Sort (by Total Absen)")
 	fmt.Println("12. Insertion Sort (by Nama)")
-	fmt.Println("--- Lainnya ---")
+	fmt.Println("Lainnya")
 	fmt.Println("13. Statistik Kehadiran")
 	fmt.Println("0.  Keluar")
 }
@@ -498,10 +492,8 @@ func main() {
 	var pertemuanKe [NKELAS]int
 	inisialisasiJadwal(&J)
 	inisialisasiDummy(&A, &nA, &L, &nL, &pertemuanKe, J)
-	fmt.Println("================================================")
 	fmt.Println("  +++ Selamat Datang di SiPresensi +++")
 	fmt.Println("  Sistem Monitoring Presensi Mahasiswa")
-	fmt.Println("================================================")
 	for {
 		tampilMenu()
 		fmt.Print("Pilihan : ")
@@ -530,7 +522,6 @@ func main() {
 				fmt.Println("\nHasil Sequential Search:")
 				fmt.Printf("%-6s  %-20s  %-3s  %-3s  %-3s  %-3s  %s\n",
 					"NIM", "Nama", "H", "I", "S", "A", "Total")
-				fmt.Println("------  --------------------  ---  ---  ---  ---  -----")
 				fmt.Printf("%-6s  %-20s  %-3d  %-3d  %-3d  %-3d  %d\n",
 					A[idx].nim, A[idx].nama,
 					A[idx].hadir, A[idx].izin, A[idx].sakit, A[idx].alpa,
@@ -553,7 +544,6 @@ func main() {
 				fmt.Println("\nHasil Binary Search:")
 				fmt.Printf("%-6s  %-20s  %-3s  %-3s  %-3s  %-3s  %s\n",
 					"NIM", "Nama", "H", "I", "S", "A", "Total")
-				fmt.Println("------  --------------------  ---  ---  ---  ---  -----")
 				fmt.Printf("%-6s  %-20s  %-3d  %-3d  %-3d  %-3d  %d\n",
 					A[idx].nim, A[idx].nama,
 					A[idx].hadir, A[idx].izin, A[idx].sakit, A[idx].alpa,
