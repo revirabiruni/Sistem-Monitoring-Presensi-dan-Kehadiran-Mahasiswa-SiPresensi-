@@ -41,7 +41,6 @@ func inisialisasiJadwal(J *dataJadwal) {
 	J[6] = jadwal{"007", "Kalkulus Lanjut", "Kamis", "09.30-12.30", "KTT B-1.08"}
 	J[7] = jadwal{"008", "Pemodelan Basis Data", "Kamis", "13.30-16.30", "KTT2.26"}
 }
-
 func inisialisasiDummy(A *dataMahasiswa, nA *int, L *dataLog, nL *int, pertemuanKe *[NKELAS]int, J dataJadwal) {
 	A[0] = mahasiswa{"001", "George Russell", 0, 0, 0, 0}
 	A[1] = mahasiswa{"002", "Kimi Antonelli", 0, 0, 0, 0}
@@ -120,6 +119,63 @@ func inisialisasiDummy(A *dataMahasiswa, nA *int, L *dataLog, nL *int, pertemuan
 	catat(5, "004", J[3].mataKuliah, 2, "H")
 	catat(6, "004", J[3].mataKuliah, 1, "H")
 	catat(6, "004", J[3].mataKuliah, 2, "H")
+	catat(0, "005", J[4].mataKuliah, 1, "H")
+	catat(0, "005", J[4].mataKuliah, 2, "I")
+	catat(1, "005", J[4].mataKuliah, 1, "H")
+	catat(1, "005", J[4].mataKuliah, 2, "H")
+	catat(2, "005", J[4].mataKuliah, 1, "H")
+	catat(2, "005", J[4].mataKuliah, 2, "H")
+	catat(3, "005", J[4].mataKuliah, 1, "H")
+	catat(3, "005", J[4].mataKuliah, 2, "H")
+	catat(4, "005", J[4].mataKuliah, 1, "H")
+	catat(4, "005", J[4].mataKuliah, 2, "H")
+	catat(5, "005", J[4].mataKuliah, 1, "H")
+	catat(5, "005", J[4].mataKuliah, 2, "H")
+	catat(6, "005", J[4].mataKuliah, 1, "I")
+	catat(6, "005", J[4].mataKuliah, 2, "H")
+	catat(0, "006", J[5].mataKuliah, 1, "H")
+	catat(0, "006", J[5].mataKuliah, 2, "H")
+	catat(1, "006", J[5].mataKuliah, 1, "H")
+	catat(1, "006", J[5].mataKuliah, 2, "H")
+	catat(2, "006", J[5].mataKuliah, 1, "H")
+	catat(2, "006", J[5].mataKuliah, 2, "H")
+	catat(3, "006", J[5].mataKuliah, 1, "A")
+	catat(3, "006", J[5].mataKuliah, 2, "H")
+	catat(4, "006", J[5].mataKuliah, 1, "H")
+	catat(4, "006", J[5].mataKuliah, 2, "H")
+	catat(5, "006", J[5].mataKuliah, 1, "H")
+	catat(5, "006", J[5].mataKuliah, 2, "H")
+	catat(6, "006", J[5].mataKuliah, 1, "H")
+	catat(6, "006", J[5].mataKuliah, 2, "S")
+	catat(0, "007", J[6].mataKuliah, 1, "H")
+	catat(0, "007", J[6].mataKuliah, 2, "H")
+	catat(1, "007", J[6].mataKuliah, 1, "H")
+	catat(1, "007", J[6].mataKuliah, 2, "H")
+	catat(2, "007", J[6].mataKuliah, 1, "H")
+	catat(2, "007", J[6].mataKuliah, 2, "H")
+	catat(3, "007", J[6].mataKuliah, 1, "H")
+	catat(3, "007", J[6].mataKuliah, 2, "I")
+	catat(4, "007", J[6].mataKuliah, 1, "H")
+	catat(4, "007", J[6].mataKuliah, 2, "H")
+	catat(5, "007", J[6].mataKuliah, 1, "H")
+	catat(5, "007", J[6].mataKuliah, 2, "H")
+	catat(6, "007", J[6].mataKuliah, 1, "H")
+	catat(6, "007", J[6].mataKuliah, 2, "H")
+	catat(0, "008", J[7].mataKuliah, 1, "H")
+	catat(0, "008", J[7].mataKuliah, 2, "H")
+	catat(1, "008", J[7].mataKuliah, 1, "H")
+	catat(1, "008", J[7].mataKuliah, 2, "A")
+	catat(2, "008", J[7].mataKuliah, 1, "I")
+	catat(2, "008", J[7].mataKuliah, 2, "H")
+	catat(3, "008", J[7].mataKuliah, 1, "H")
+	catat(3, "008", J[7].mataKuliah, 2, "H")
+	catat(4, "008", J[7].mataKuliah, 1, "H")
+	catat(4, "008", J[7].mataKuliah, 2, "H")
+	catat(5, "008", J[7].mataKuliah, 1, "H")
+	catat(5, "008", J[7].mataKuliah, 2, "H")
+	catat(6, "008", J[7].mataKuliah, 1, "H")
+	catat(6, "008", J[7].mataKuliah, 2, "H")
+	
 	var k int
 	for k = 0; k < NKELAS; k++ {
 		pertemuanKe[k] = 2
@@ -156,7 +212,7 @@ func tambahMahasiswa(A *dataMahasiswa, n *int) {
 	}
 	var nimBaru string
 	fmt.Print("NIM  : ")
-	fmt.Scan(&nimBaru)
+	fmt.Scanln(&nimBaru)
 
 	if sequentialSearch(*A, *n, nimBaru) != -1 {
 		fmt.Println("NIM sudah terdaftar!")
@@ -164,19 +220,19 @@ func tambahMahasiswa(A *dataMahasiswa, n *int) {
 	}
 	A[*n].nim = nimBaru
 	fmt.Print("Nama : ")
-	fmt.Scan(&A[*n].nama)
+	fmt.Scanln(&A[*n].nama)
 	*n++
 	fmt.Println("Mahasiswa berhasil ditambahkan.")
 }
 func ubahMahasiswa(A *dataMahasiswa, n int) {
 	var nim string
 	fmt.Print("NIM yang dicari : ")
-	fmt.Scan(&nim)
+	fmt.Scanln(&nim)
 	idx := sequentialSearch(*A, n, nim)
 	if idx != -1 {
 		idx = idx - 1
 		fmt.Print("Nama baru : ")
-		fmt.Scan(&A[idx].nama)
+		fmt.Scanln(&A[idx].nama)
 		fmt.Println("Data berhasil diubah.")
 	} else {
 		fmt.Println("Data tidak ditemukan.")
@@ -186,7 +242,7 @@ func hapusMahasiswa(A *dataMahasiswa, n *int) {
 	var nim string
 	var i, idx int
 	fmt.Print("NIM yang dihapus : ")
-	fmt.Scan(&nim)
+	fmt.Scanln(&nim)
 	idx = sequentialSearch(*A, *n, nim)
 	if idx != -1 {
 		idx = idx - 1
@@ -224,7 +280,7 @@ func sesiAbsensi(A *dataMahasiswa, nA int, J dataJadwal, L *dataLog, nL *int, pe
 	var kode string
 	tampilJadwal(J, *pertemuanKe)
 	fmt.Print("\nMasukkan Kode Kelas : ")
-	fmt.Scan(&kode)
+	fmt.Scanln(&kode)
 	idxJ := cariJadwal(J, kode)
 	if idxJ == -1 {
 		fmt.Println("Kode kelas tidak ditemukan!")
@@ -238,7 +294,7 @@ func sesiAbsensi(A *dataMahasiswa, nA int, J dataJadwal, L *dataLog, nL *int, pe
 	for {
 		var input string
 		fmt.Print("\nNIM (atau SELESAI) : ")
-		fmt.Scan(&input)
+		fmt.Scanln(&input)
 		if input == "SELESAI" {
 			pertemuanKe[idxJ]++
 			fmt.Printf("\nSesi pertemuan ke-%d untuk %s selesai.\n",
@@ -255,7 +311,7 @@ func sesiAbsensi(A *dataMahasiswa, nA int, J dataJadwal, L *dataLog, nL *int, pe
 		fmt.Printf("Nama     : %s\n", A[idxA].nama)
 		fmt.Print("Status (H/I/S/A) : ")
 		var status string
-		fmt.Scan(&status)
+		fmt.Scanln(&status)
 		if status != "H" && status != "I" && status != "S" && status != "A" {
 			fmt.Println("Status tidak valid! Gunakan H / I / S / A. Absen dibatalkan.")
 			continue
@@ -299,7 +355,7 @@ func tampilLog(L dataLog, nL int, J dataJadwal, pertemuanKe [NKELAS]int) {
 	var kode string
 	tampilJadwal(J, pertemuanKe)
 	fmt.Print("\nFilter by Kode Kelas (atau ketik 'semua') : ")
-	fmt.Scan(&kode)
+	fmt.Scanln(&kode)
 	fmt.Printf("\n%-6s  %-20s  %-5s  %-40s  %-9s  %s\n",
 		"NIM", "Nama", "Kelas", "Mata Kuliah", "Pertemuan", "Status")
 	var i int
@@ -320,6 +376,8 @@ func tampilLog(L dataLog, nL int, J dataJadwal, pertemuanKe [NKELAS]int) {
 	if !ada {
 		fmt.Println("Tidak ada data untuk kelas tersebut.")
 	}
+	fmt.Println("\n")
+	fmt.Scan()
 }
 func sequentialSearch(A dataMahasiswa, n int, nim string) int {
 	var found bool = false
@@ -334,31 +392,49 @@ func sequentialSearch(A dataMahasiswa, n int, nim string) int {
 	return -1
 }
 func sequentialSearchStatus(A dataMahasiswa, n int, status string) {
-	var found bool = false
-	var i int = 0
-	fmt.Println("\nHasil pencarian status", status, ":")
-	for i < n {
-		var cocok bool = false
-		if status == "H" {
-			cocok = A[i].hadir > 0
-		} else if status == "I" {
-			cocok = A[i].izin > 0
-		} else if status == "S" {
-			cocok = A[i].sakit > 0
-		} else if status == "A" {
-			cocok = A[i].alpa > 0
-		}
-		if cocok {
-			fmt.Println(A[i].nim, A[i].nama,
-				"H:", A[i].hadir, "I:", A[i].izin,
-				"S:", A[i].sakit, "A:", A[i].alpa)
+    fmt.Println("\nHasil pencarian status", status, ":")
+    var found bool = false
+
+    if status == "semua" {
+		for i := 0; i < n; i++ {
+			fmt.Printf("%-6s %-20s H: %d, I: %d, S: %d, A: %d\n",
+				A[i].nim, A[i].nama, A[i].hadir, A[i].izin, A[i].sakit, A[i].alpa)
 			found = true
 		}
-		i = i + 1
-	}
-	if !found {
-		fmt.Println("Tidak ada mahasiswa dengan status tersebut.")
-	}
+	} else {
+		max := 0    
+		for i := 0; i < n; i++ {
+        if status == "H" && A[i].hadir > max {
+            max = A[i].hadir
+        } else if status == "I" && A[i].izin > max {
+            max = A[i].izin
+        } else if status == "S" && A[i].sakit > max {
+            max = A[i].sakit
+        } else if status == "A" && A[i].alpa > max {
+            max = A[i].alpa
+        }
+    }
+    for jumlah := max; jumlah > 0; jumlah-- {
+        for i := 0; i < n; i++ {
+            if status == "H" && A[i].hadir == jumlah {
+                fmt.Printf("%-6s %-20s H: %d\n", A[i].nim, A[i].nama, A[i].hadir)
+                found = true
+            } else if status == "I" && A[i].izin == jumlah {
+                fmt.Printf("%-6s %-20s I: %d\n", A[i].nim, A[i].nama, A[i].izin)
+                found = true
+            } else if status == "S" && A[i].sakit == jumlah {
+                fmt.Printf("%-6s %-20s S: %d\n", A[i].nim, A[i].nama, A[i].sakit)
+                found = true
+            } else if status == "A" && A[i].alpa == jumlah {
+                fmt.Printf("%-6s %-20s A: %d\n", A[i].nim, A[i].nama, A[i].alpa)
+                found = true
+            }
+        }
+    }
+}
+    if !found {
+        fmt.Println("Tidak ada mahasiswa dengan status tersebut.")
+    }
 }
 func insertionSortByNIM(A *dataMahasiswa, n int) {
 	var pass, i int
@@ -497,7 +573,7 @@ func main() {
 	for {
 		tampilMenu()
 		fmt.Print("Pilihan : ")
-		fmt.Scan(&pilih)
+		fmt.Scanln(&pilih)
 		switch pilih {
 		case 1:
 			sesiAbsensi(&A, nA, J, &L, &nL, &pertemuanKe)
@@ -515,7 +591,7 @@ func main() {
 			tampilJadwal(J, pertemuanKe)
 		case 8:
 			fmt.Print("Cari NIM : ")
-			fmt.Scan(&nim)
+			fmt.Scanln(&nim)
 			idx = sequentialSearch(A, nA, nim)
 			if idx != -1 {
 				idx = idx - 1
@@ -532,12 +608,12 @@ func main() {
 			}
 		case 9:
 			var status string
-			fmt.Print("Cari Status (H/I/S/A) : ")
-			fmt.Scan(&status)
+			fmt.Print("Cari Status (H/I/S/A) / semua : ")
+			fmt.Scanln(&status)
 			sequentialSearchStatus(A, nA, status)
 		case 10:
 			fmt.Print("Cari NIM : ")
-			fmt.Scan(&nim)
+			fmt.Scanln(&nim)
 			idx = binarySearch(&A, nA, nim)
 			if idx != -1 {
 				idx = idx - 1
