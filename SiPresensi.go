@@ -2,7 +2,7 @@ package main
 import "fmt"
 
 const NMAX int = 100
-const NKELAS int = 10
+const NKELAS int = 8
 
 type mahasiswa struct {
 	nim   string
